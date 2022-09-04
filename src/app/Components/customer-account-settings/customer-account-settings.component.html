@@ -1,0 +1,81 @@
+
+    <div class="split left" *ngIf="customer.name != ''">
+        <div class="centered">
+            <div class="customer-information">
+                <p> Customer name : <strong> {{ customer.name }} </strong></p>
+                <p> Customer surname : <strong> {{ customer.surname }} </strong></p>
+                <p> Customer price : <strong> {{ customer.price }} </strong></p>
+                <div class="horizontal-view">
+                <button class="btn btn-primary" (click)="showModifyCustomerForm()"> Modify Customer </button>
+                <button class="btn btn-danger" (click)="removeCustomer()"> Remove Customer</button>
+                </div>
+                <form *ngIf="isModifyCustomerFormVisible" (submit)="modifyCustomer()" class="vertical-view">
+                    <input type="text" name="modifiedCustomer.name" [(ngModel)]="modifiedCustomer.name" placeholder="New name"/>
+                    <input type="text" name="modifiedCustomer.surname" [(ngModel)]="modifiedCustomer.surname" placeholder="New surname"/>
+                    <input type="text" name="modifiedCustomer.price" [(ngModel)]="modifiedCustomer.price" placeholder="New price"/>
+                    <p></p>
+
+                    <button class="btn btn-success vertical-btn" type="submit"> Save </button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="customer.name == ''">
+        <p style="text-align: center; font-size: 40px; margin-top: 200px;"> No customer found!</p>
+    </div>
+    <div class="split right" *ngIf="customer.name != '' && account">
+        <div style="width: 300px;" class="centered">
+            <div>
+                <p> Account name: <strong> {{ account.name }} </strong></p>
+                <p> Account login: <strong> {{ account.login }} </strong></p>
+                <p> Account password: <strong> {{ account.password }} </strong></p>
+                <div class="horizontal-view">
+                    <button class="btn btn-primary" (click)="showModifyAccountForm()"> Modify account </button>
+                </div>
+                <form *ngIf="isModifyAccountFormVisible" (submit)="modifyAccount()" class="vertical-view">
+                   <input type="text" name="modifiedAccount.name" [(ngModel)]="modifiedAccount.name" placeholder="New name"/>
+                   <input type="text" name="modifiedAccount.login" [(ngModel)]="modifiedAccount.login" placeholder="New login"/>
+                   <input type="text" name="modifiedAccount.password" [(ngModel)]="modifiedAccount.password" placeholder="New password"/>
+                   <p></p>
+                   <button class="btn btn-success vertical-btn" type="submit"> Save </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="split right" *ngIf="customer.name != '' && !account">
+        <div class="centered">
+            <div class="account-div-table">
+                <table class="account-table" *ngIf="accounts.length > 0">
+                    <thead class="account-table-head">
+                        <tr>
+                            <td> So No</td>
+                            <td> Name </td>
+                            <td> Login </td>
+                            <td> Password </td>  
+                            <td> Action </td> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let account of accounts; let i = index">
+                            <td> {{ i + 1 }} </td>
+                            <td> {{ account.name }} </td>
+                            <td> {{ account.login }} </td>
+                            <td> {{ account.password }} </td>
+                            <td> <button class="btn btn-success" (click)="attachAccountToCustomer(account)"> Attach </button> </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="new-account">
+                    <button class="btn btn-success" (click)="showNewAccountForm()"> Add new account </button>
+                </div>
+                <form *ngIf="isAddNewAccountFormVisible" (submit)="addNewAccount()" class="vertical-view">
+                    <input type="text" name="modifiedAccount.name" [(ngModel)]="modifiedAccount.name" placeholder="Name" />
+                    <input type="text" name="modifiedAccount.login" [(ngModel)]="modifiedAccount.login" placeholder="Login" />
+                    <input type="text" name="modifiedAccount.password" [(ngModel)]="modifiedAccount.password" placeholder="Password" />
+                    <p></p>
+                    <button style="margin-bottom: 10px;" class="btn btn-success" type="submit"> Add Account </button>
+                </form>
+            </div>
+        </div>
+    </div>

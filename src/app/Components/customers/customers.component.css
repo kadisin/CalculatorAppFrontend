@@ -1,0 +1,43 @@
+.container {
+    margin-top: 30px;
+    width: 100%;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.customer-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
+.customer-table-head {
+    border: 1px solid black;
+}
+.th .td {
+    padding: 30px;
+}
+
+.adding-customers {
+    margin-top: 10px;
+}
+
+.left-side {
+    width: 50%;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+}
+
+.vertical-center {
+    top: 50%;
+    left: 30%;
+}
+
+.right-side {
+    width: 50%;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+}

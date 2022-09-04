@@ -1,0 +1,8 @@
+<div class="menu">
+    <h1 class="logo" routerLink="home">Customers<span>Online</span></h1>
+    <div class="elements">
+        <ul *ngFor="let menuPosition of menuPositions"> 
+            <li><a (click)="changePage(menuPosition)"> {{ menuPosition }} </a></li>
+        </ul>
+    </div>
+</div>

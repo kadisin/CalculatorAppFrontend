@@ -1,0 +1,66 @@
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    padding-top: 20px;
+    border: solid;
+    font-size: 20px;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.horizontal-view {
+    display: inline-block;
+}
+
+.vertical-view {
+    position: absolute;
+    margin-top: 30px;
+    width: 100%;
+    border-style: double;
+    display: block;
+}
+
+input:nth-child(1)
+{
+    margin-top: 20px;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+.account-div-table {
+    width: 600px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+td {
+    margin-top: 10px;
+}
+.account-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.account-table-head {
+    border: 1px solid black;
+}

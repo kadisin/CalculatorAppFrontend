@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="price-table">
+        <thead class="price-table-head">
+            <tr>
+                <td> So No</td>
+                <td> Price </td>
+                <td> Date </td>
+                <td> Status </td>
+                <td> Actions </td> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let price of prices; let i = index">
+                <td> {{ i + 1 }} </td>
+                <td> {{ price.price }} </td>
+                <td> {{ price.datePrice }} </td>
+                <td> {{ price.statusString }} </td>
+                <td> 
+                    <button class="btn btn-success"> Push </button>
+                    <button class="btn btn-success"> Back </button>
+                    <button class="btn btn-success"> Example </button> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

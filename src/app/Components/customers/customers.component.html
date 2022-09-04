@@ -1,0 +1,48 @@
+<div class="container">
+
+    <table class="customer-table">
+        <thead class="customer-table-head">
+            <tr>
+                <td> Sr No </td>
+                <td> Name </td>
+                <td> Surname </td>
+                <td> Price </td>
+                <td> Account settings </td>
+                <td> Edit </td>
+                <td> Remove </td> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let customer of customers; let i = index">
+                <td> {{ i + 1 }} </td>
+                <td> {{ customer.name }} </td>
+                <td> {{ customer.surname }} </td>
+                <td> <button class="btn btn-warning" (click)="showCustomerPrices(customer)"> Prices </button> </td>
+                <td> <button class="btn btn-info" (click)="accountSettings(customer)"> Account </button></td>
+                <td> <button class="btn btn-primary" (click)="modifyCustomer(customer)"> Edit </button></td>
+                <td> <button class="btn btn-danger" (click)="removeCustomer(customer)"> Remove </button></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="adding-customers">
+        <div class="left-side">
+            <div class="vertical-center">
+                <button class="btn btn-success" id="add-btn" (click)="showCustomerForm()"> Add Customer</button>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="addNewCustomer" *ngIf="isAddNewCustomerOpen == true || isModifyCustomerOpen == true">
+                <form class="form" (submit)="sendCustomerRequest()">
+                    <input type="text" placeholder="name"
+                    name="customer.name" [(ngModel)]="customer.name"/>
+                    <input type="text" placeholder="surname"
+                    name="customer.surname" [(ngModel)]="customer.surname"/>
+                    <input type="text" placeholder="price"
+                    name="customer.price" [(ngModel)]="customer.price"/>
+                    <button class="btn btn-success" type="submit"> Send </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
